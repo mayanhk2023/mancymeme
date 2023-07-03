@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>紀文思生成器</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{padding:0;margin: 0;}
+		body{  display: grid;
+  align-items: center;
+  justify-content: center;min-height: 70vh;}
+#speech_box{position: absolute;
+top: 20%;
+color:
+white;
+width: 290px;
+font-size: 28pt;line-height: 40pt;}
+#bg{background-image: url("bg1.jpg");width: 800px;height: 500px;position: relative;}
+button{font-size: 30pt;}
+h1{text-align: center;}
+#speech_box.left{left: 30px;}
+#speech_box.right{right: 30px;}
+</style>
+
+</head>
+<body>
+	
+	<h1>紀文思生成器</h1>
+	<button onclick="next_speech();">按下生成新句子</button>
+	<div id="bg">
+
+		<div id="speech_box">fewfwefwef</div>		
+	</div>
+
+	<script type="text/javascript">
+let speech = [
+"政府從來唔會違反人權法 我地經協最重視就係人權",
+"唔好搞事 經協最大方 本來想出六席 宜家讓一席俾自民黨 史上最大方係經協",
+"經協最多忠臣 我係代表！",
+"經協最保護所有市民嘅利益 從來唔會剝奪人權 哩兩屆經協政府最保障人權 主動修改人權法 ",
+"經協最支持友邦發展",
+"從來唔怕被人mean",
+"我係黃名好市民！民生永遠優先，政治擺埋一邊！",
+"執政黨最好人 從來唔屈人",
+"經協最保護所有市民嘅利益 從來唔會剝奪人權 哩兩屆經協政府最保障人權 主動修改人權法",
+"經協從來唔搞白色恐怖",
+"黃名是多元文化國家 從來不迫害任何市民",
+"我地經協人光明正大 從來唔戴面具 擺明想搞事又唔想被人認到！",
+"政府從來都無分化黃名 新政府一定會團結黃名",
+"黃名人民從來不當我是好朋友啊 如果我係黃名人民好朋友就唔會次次輸啦",
+"執政黨最好人 從來唔屈人",
+"向大眾致歉唔係「最重要嘅議題」",
+"黃名帝國是最友善的帝國",
+"本政府的人權記錄是歷史上最優秀最亮麗的",
+"我地最尊重宗教自由",
+"我最鍾意大司憲講真心說話",
+"經協政府最聽取民意 絕對會把市民心中的憂慮化解",
+"經協做得最好 唔使質疑",
+"經協形象最清純可愛",
+"我地黨友心地最好 唔會批鬥人嘅",
+"議席最緊要，訴求只是口號",
+"朗朗是最好的 不要理會那些無聊人",
+"最討厭就是國防部！",
+"覺得自己做得唔算好 都唔算差 雖然無恥 但係我都要咁樣講",
+"你最好撒回你的言辭，否則會保留法律追究權利",
+"頑皮!",
+"本美人出現 嘈交嘅美男們快啲退散",
+"本美人用經血淋你個面具 睇下你有幾神秘！",
+"不要污衊本美人！",
+"靚嘅人無辦法 千萬不要妒忌本美人",
+"威風凜凜地入黎接受反對黨領袖對我的讚美",
+"本美女首相威風凜凜進入參觀！",
+"我係乖巧嘅代表"
+];
+
+let used_speech=[];
+
+function next_speech(){
+	let speech_num = Math.floor(Math.random() * speech.length);
+	let this_speech = speech.splice(speech_num, 1)[0];
+	speech_box.textContent = this_speech;
+	used_speech.push(this_speech);
+
+	if(speech.length==0){speech=used_speech;used_speech=[];}
+
+
+	let bg_num = Math.floor(Math.random() * 4) +1;
+	bg.style.backgroundImage = "url(bg"+bg_num+".jpg)";
+	if(bg_num%2==0){
+		speech_box.className="right";
+	}else{
+		speech_box.className="left";
+	}
+}
+
+next_speech();
+	</script>
+</body>
+</html>
